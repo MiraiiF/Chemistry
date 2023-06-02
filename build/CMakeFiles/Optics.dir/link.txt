@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Optics.dir/main.cpp.o CMakeFiles/Optics.dir/glad/src/glad.c.o -o Optics  glfw/src/libglfw3.a /usr/lib/x86_64-linux-gnu/librt.a -lm -ldl /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so 
