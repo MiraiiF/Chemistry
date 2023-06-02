@@ -12,9 +12,11 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 add_subdirectory(glfw)
 add_subdirectory(glm)
 
-include_directories(glad/include)
+include_directories(glad/include Libraries)
 
-add_executable(Optics main.cpp glad/src/glad.c)
+set(SOURCE_FILES Sources/Camera.cpp Sources/Shader.cpp Sources/stb_image.cpp Sources/texture.cpp)
+
+add_executable(Optics main.cpp glad/src/glad.c ${SOURCE_FILES})
 
 target_link_libraries(Optics glfw)
 target_link_libraries(Optics glm)

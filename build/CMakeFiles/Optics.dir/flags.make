@@ -5,13 +5,13 @@
 # compile CXX with /usr/bin/c++
 C_DEFINES = 
 
-C_INCLUDES = -I/home/mirai/Documentos/Optics/glad/include -I/home/mirai/Documentos/Optics/glfw/include -I/home/mirai/Documentos/Optics/glm
+C_INCLUDES = -I/home/mirai/Documentos/Optics/glad/include -I/home/mirai/Documentos/Optics/Libraries -I/home/mirai/Documentos/Optics/glfw/include -I/home/mirai/Documentos/Optics/glm
 
 C_FLAGS = 
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/mirai/Documentos/Optics/glad/include -I/home/mirai/Documentos/Optics/glfw/include -I/home/mirai/Documentos/Optics/glm
+CXX_INCLUDES = -I/home/mirai/Documentos/Optics/glad/include -I/home/mirai/Documentos/Optics/Libraries -I/home/mirai/Documentos/Optics/glfw/include -I/home/mirai/Documentos/Optics/glm
 
 CXX_FLAGS = 
 

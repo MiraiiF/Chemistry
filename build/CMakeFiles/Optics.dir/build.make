@@ -97,16 +97,80 @@ CMakeFiles/Optics.dir/glad/src/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Optics.dir/glad/src/glad.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/mirai/Documentos/Optics/glad/src/glad.c -o CMakeFiles/Optics.dir/glad/src/glad.c.s
 
+CMakeFiles/Optics.dir/Sources/Camera.cpp.o: CMakeFiles/Optics.dir/flags.make
+CMakeFiles/Optics.dir/Sources/Camera.cpp.o: ../Sources/Camera.cpp
+CMakeFiles/Optics.dir/Sources/Camera.cpp.o: CMakeFiles/Optics.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mirai/Documentos/Optics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Optics.dir/Sources/Camera.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Optics.dir/Sources/Camera.cpp.o -MF CMakeFiles/Optics.dir/Sources/Camera.cpp.o.d -o CMakeFiles/Optics.dir/Sources/Camera.cpp.o -c /home/mirai/Documentos/Optics/Sources/Camera.cpp
+
+CMakeFiles/Optics.dir/Sources/Camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Optics.dir/Sources/Camera.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mirai/Documentos/Optics/Sources/Camera.cpp > CMakeFiles/Optics.dir/Sources/Camera.cpp.i
+
+CMakeFiles/Optics.dir/Sources/Camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Optics.dir/Sources/Camera.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mirai/Documentos/Optics/Sources/Camera.cpp -o CMakeFiles/Optics.dir/Sources/Camera.cpp.s
+
+CMakeFiles/Optics.dir/Sources/Shader.cpp.o: CMakeFiles/Optics.dir/flags.make
+CMakeFiles/Optics.dir/Sources/Shader.cpp.o: ../Sources/Shader.cpp
+CMakeFiles/Optics.dir/Sources/Shader.cpp.o: CMakeFiles/Optics.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mirai/Documentos/Optics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Optics.dir/Sources/Shader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Optics.dir/Sources/Shader.cpp.o -MF CMakeFiles/Optics.dir/Sources/Shader.cpp.o.d -o CMakeFiles/Optics.dir/Sources/Shader.cpp.o -c /home/mirai/Documentos/Optics/Sources/Shader.cpp
+
+CMakeFiles/Optics.dir/Sources/Shader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Optics.dir/Sources/Shader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mirai/Documentos/Optics/Sources/Shader.cpp > CMakeFiles/Optics.dir/Sources/Shader.cpp.i
+
+CMakeFiles/Optics.dir/Sources/Shader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Optics.dir/Sources/Shader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mirai/Documentos/Optics/Sources/Shader.cpp -o CMakeFiles/Optics.dir/Sources/Shader.cpp.s
+
+CMakeFiles/Optics.dir/Sources/stb_image.cpp.o: CMakeFiles/Optics.dir/flags.make
+CMakeFiles/Optics.dir/Sources/stb_image.cpp.o: ../Sources/stb_image.cpp
+CMakeFiles/Optics.dir/Sources/stb_image.cpp.o: CMakeFiles/Optics.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mirai/Documentos/Optics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Optics.dir/Sources/stb_image.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Optics.dir/Sources/stb_image.cpp.o -MF CMakeFiles/Optics.dir/Sources/stb_image.cpp.o.d -o CMakeFiles/Optics.dir/Sources/stb_image.cpp.o -c /home/mirai/Documentos/Optics/Sources/stb_image.cpp
+
+CMakeFiles/Optics.dir/Sources/stb_image.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Optics.dir/Sources/stb_image.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mirai/Documentos/Optics/Sources/stb_image.cpp > CMakeFiles/Optics.dir/Sources/stb_image.cpp.i
+
+CMakeFiles/Optics.dir/Sources/stb_image.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Optics.dir/Sources/stb_image.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mirai/Documentos/Optics/Sources/stb_image.cpp -o CMakeFiles/Optics.dir/Sources/stb_image.cpp.s
+
+CMakeFiles/Optics.dir/Sources/texture.cpp.o: CMakeFiles/Optics.dir/flags.make
+CMakeFiles/Optics.dir/Sources/texture.cpp.o: ../Sources/texture.cpp
+CMakeFiles/Optics.dir/Sources/texture.cpp.o: CMakeFiles/Optics.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mirai/Documentos/Optics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Optics.dir/Sources/texture.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Optics.dir/Sources/texture.cpp.o -MF CMakeFiles/Optics.dir/Sources/texture.cpp.o.d -o CMakeFiles/Optics.dir/Sources/texture.cpp.o -c /home/mirai/Documentos/Optics/Sources/texture.cpp
+
+CMakeFiles/Optics.dir/Sources/texture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Optics.dir/Sources/texture.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mirai/Documentos/Optics/Sources/texture.cpp > CMakeFiles/Optics.dir/Sources/texture.cpp.i
+
+CMakeFiles/Optics.dir/Sources/texture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Optics.dir/Sources/texture.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mirai/Documentos/Optics/Sources/texture.cpp -o CMakeFiles/Optics.dir/Sources/texture.cpp.s
+
 # Object files for target Optics
 Optics_OBJECTS = \
 "CMakeFiles/Optics.dir/main.cpp.o" \
-"CMakeFiles/Optics.dir/glad/src/glad.c.o"
+"CMakeFiles/Optics.dir/glad/src/glad.c.o" \
+"CMakeFiles/Optics.dir/Sources/Camera.cpp.o" \
+"CMakeFiles/Optics.dir/Sources/Shader.cpp.o" \
+"CMakeFiles/Optics.dir/Sources/stb_image.cpp.o" \
+"CMakeFiles/Optics.dir/Sources/texture.cpp.o"
 
 # External object files for target Optics
 Optics_EXTERNAL_OBJECTS =
 
 Optics: CMakeFiles/Optics.dir/main.cpp.o
 Optics: CMakeFiles/Optics.dir/glad/src/glad.c.o
+Optics: CMakeFiles/Optics.dir/Sources/Camera.cpp.o
+Optics: CMakeFiles/Optics.dir/Sources/Shader.cpp.o
+Optics: CMakeFiles/Optics.dir/Sources/stb_image.cpp.o
+Optics: CMakeFiles/Optics.dir/Sources/texture.cpp.o
 Optics: CMakeFiles/Optics.dir/build.make
 Optics: glfw/src/libglfw3.a
 Optics: /usr/lib/x86_64-linux-gnu/librt.a
@@ -114,7 +178,7 @@ Optics: /usr/lib/x86_64-linux-gnu/libm.so
 Optics: /usr/lib/x86_64-linux-gnu/libGLX.so
 Optics: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 Optics: CMakeFiles/Optics.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mirai/Documentos/Optics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Optics"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mirai/Documentos/Optics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Optics"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Optics.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

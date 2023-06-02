@@ -1,6 +1,7 @@
-CMakeFiles/Optics.dir/main.cpp.o: /home/mirai/Documentos/Optics/main.cpp \
+CMakeFiles/Optics.dir/Sources/Camera.cpp.o: \
+ /home/mirai/Documentos/Optics/Sources/Camera.cpp \
  /usr/include/stdc-predef.h \
- /home/mirai/Documentos/Optics/Libraries/Shader.h \
+ /home/mirai/Documentos/Optics/Libraries/Camera.h \
  /home/mirai/Documentos/Optics/Libraries/General.h \
  /home/mirai/Documentos/Optics/glad/include/glad/glad.h \
  /home/mirai/Documentos/Optics/glad/include/KHR/khrplatform.h \
@@ -388,5 +389,4 @@ CMakeFiles/Optics.dir/main.cpp.o: /home/mirai/Documentos/Optics/main.cpp \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/iostream \
- /usr/include/c++/11/sstream /usr/include/c++/11/bits/sstream.tcc \
- /home/mirai/Documentos/Optics/Libraries/texture.h
+ /usr/include/c++/11/sstream /usr/include/c++/11/bits/sstream.tcc

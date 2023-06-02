@@ -213,6 +213,102 @@ update_mappings/fast:
 	$(MAKE) $(MAKESILENT) -f glfw/src/CMakeFiles/update_mappings.dir/build.make glfw/src/CMakeFiles/update_mappings.dir/build
 .PHONY : update_mappings/fast
 
+Sources/Camera.o: Sources/Camera.cpp.o
+.PHONY : Sources/Camera.o
+
+# target to build an object file
+Sources/Camera.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Optics.dir/build.make CMakeFiles/Optics.dir/Sources/Camera.cpp.o
+.PHONY : Sources/Camera.cpp.o
+
+Sources/Camera.i: Sources/Camera.cpp.i
+.PHONY : Sources/Camera.i
+
+# target to preprocess a source file
+Sources/Camera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Optics.dir/build.make CMakeFiles/Optics.dir/Sources/Camera.cpp.i
+.PHONY : Sources/Camera.cpp.i
+
+Sources/Camera.s: Sources/Camera.cpp.s
+.PHONY : Sources/Camera.s
+
+# target to generate assembly for a file
+Sources/Camera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Optics.dir/build.make CMakeFiles/Optics.dir/Sources/Camera.cpp.s
+.PHONY : Sources/Camera.cpp.s
+
+Sources/Shader.o: Sources/Shader.cpp.o
+.PHONY : Sources/Shader.o
+
+# target to build an object file
+Sources/Shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Optics.dir/build.make CMakeFiles/Optics.dir/Sources/Shader.cpp.o
+.PHONY : Sources/Shader.cpp.o
+
+Sources/Shader.i: Sources/Shader.cpp.i
+.PHONY : Sources/Shader.i
+
+# target to preprocess a source file
+Sources/Shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Optics.dir/build.make CMakeFiles/Optics.dir/Sources/Shader.cpp.i
+.PHONY : Sources/Shader.cpp.i
+
+Sources/Shader.s: Sources/Shader.cpp.s
+.PHONY : Sources/Shader.s
+
+# target to generate assembly for a file
+Sources/Shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Optics.dir/build.make CMakeFiles/Optics.dir/Sources/Shader.cpp.s
+.PHONY : Sources/Shader.cpp.s
+
+Sources/stb_image.o: Sources/stb_image.cpp.o
+.PHONY : Sources/stb_image.o
+
+# target to build an object file
+Sources/stb_image.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Optics.dir/build.make CMakeFiles/Optics.dir/Sources/stb_image.cpp.o
+.PHONY : Sources/stb_image.cpp.o
+
+Sources/stb_image.i: Sources/stb_image.cpp.i
+.PHONY : Sources/stb_image.i
+
+# target to preprocess a source file
+Sources/stb_image.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Optics.dir/build.make CMakeFiles/Optics.dir/Sources/stb_image.cpp.i
+.PHONY : Sources/stb_image.cpp.i
+
+Sources/stb_image.s: Sources/stb_image.cpp.s
+.PHONY : Sources/stb_image.s
+
+# target to generate assembly for a file
+Sources/stb_image.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Optics.dir/build.make CMakeFiles/Optics.dir/Sources/stb_image.cpp.s
+.PHONY : Sources/stb_image.cpp.s
+
+Sources/texture.o: Sources/texture.cpp.o
+.PHONY : Sources/texture.o
+
+# target to build an object file
+Sources/texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Optics.dir/build.make CMakeFiles/Optics.dir/Sources/texture.cpp.o
+.PHONY : Sources/texture.cpp.o
+
+Sources/texture.i: Sources/texture.cpp.i
+.PHONY : Sources/texture.i
+
+# target to preprocess a source file
+Sources/texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Optics.dir/build.make CMakeFiles/Optics.dir/Sources/texture.cpp.i
+.PHONY : Sources/texture.cpp.i
+
+Sources/texture.s: Sources/texture.cpp.s
+.PHONY : Sources/texture.s
+
+# target to generate assembly for a file
+Sources/texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Optics.dir/build.make CMakeFiles/Optics.dir/Sources/texture.cpp.s
+.PHONY : Sources/texture.cpp.s
+
 glad/src/glad.o: glad/src/glad.c.o
 .PHONY : glad/src/glad.o
 
@@ -277,6 +373,18 @@ help:
 	@echo "... update_mappings"
 	@echo "... Optics"
 	@echo "... glfw"
+	@echo "... Sources/Camera.o"
+	@echo "... Sources/Camera.i"
+	@echo "... Sources/Camera.s"
+	@echo "... Sources/Shader.o"
+	@echo "... Sources/Shader.i"
+	@echo "... Sources/Shader.s"
+	@echo "... Sources/stb_image.o"
+	@echo "... Sources/stb_image.i"
+	@echo "... Sources/stb_image.s"
+	@echo "... Sources/texture.o"
+	@echo "... Sources/texture.i"
+	@echo "... Sources/texture.s"
 	@echo "... glad/src/glad.o"
 	@echo "... glad/src/glad.i"
 	@echo "... glad/src/glad.s"
