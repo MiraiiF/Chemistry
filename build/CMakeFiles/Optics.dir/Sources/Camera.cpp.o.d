@@ -1,8 +1,8 @@
 CMakeFiles/Optics.dir/Sources/Camera.cpp.o: \
  /home/mirai/Documentos/Optics/Sources/Camera.cpp \
  /usr/include/stdc-predef.h \
- /home/mirai/Documentos/Optics/Libraries/Camera.h \
- /home/mirai/Documentos/Optics/Libraries/General.h \
+ /home/mirai/Documentos/Optics/Sources/../Libraries/Camera.h \
+ /home/mirai/Documentos/Optics/Sources/../Libraries/General.h \
  /home/mirai/Documentos/Optics/glad/include/glad/glad.h \
  /home/mirai/Documentos/Optics/glad/include/KHR/khrplatform.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
@@ -57,8 +57,8 @@ CMakeFiles/Optics.dir/Sources/Camera.cpp.o: \
  /usr/include/c++/11/bits/hash_bytes.h \
  /usr/include/c++/11/bits/range_access.h \
  /usr/include/c++/11/bits/vector.tcc \
- /home/mirai/Documentos/Optics/Libraries/stb_image.h /usr/include/stdio.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+ /home/mirai/Documentos/Optics/Sources/../Libraries/stb_image.h \
+ /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
