@@ -1,4 +1,4 @@
-#include "Camera.h"
+#include "../Libraries/Camera.h"
 
 Camera::Camera(glm::vec3 target, glm::vec3 pos) {
 		position = pos;

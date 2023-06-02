@@ -1,4 +1,4 @@
-#include "texture.h"
+#include "../Libraries/texture.h"
 
 texture::texture(const char* path, GLint wrapmode, GLint filter, bool srgb)
 {
