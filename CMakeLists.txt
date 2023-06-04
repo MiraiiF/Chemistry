@@ -14,7 +14,7 @@ add_subdirectory(glm)
 
 include_directories(glad/include Libraries)
 
-set(SOURCE_FILES Sources/Camera.cpp Sources/Shader.cpp Sources/stb_image.cpp Sources/texture.cpp)
+set(SOURCE_FILES Sources/Camera.cpp Sources/Shader.cpp Sources/stb_image.cpp Sources/texture.cpp Sources/Desenho.cpp)
 
 add_executable(Optics main.cpp glad/src/glad.c ${SOURCE_FILES})
 

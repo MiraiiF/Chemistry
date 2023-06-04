@@ -1,6 +1,7 @@
 #include "Libraries/Camera.h"
 #include "Libraries/Shader.h"
 #include "Libraries/texture.h"
+#include "Libraries/Desenhos.h"
 
 bool firstcursor = true;
 float lastx = 640, lasty = 360;
@@ -48,7 +49,7 @@ int main(void){
 	glfwSetCursorPosCallback(janela, callback_cursor);
 	glfwSetInputMode(janela, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-	Shader Base("../Shaders/BaseShader.vert", "../Shaders/BaseShader.frag");
+	Shader Base("../../Shaders/BaseShader.vert", "../../Shaders/BaseShader.frag");
 
 	unsigned int VAOMirror, VBOMirror;
 	glGenVertexArrays(1, &VAOMirror);
@@ -69,21 +70,44 @@ int main(void){
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GL_FLOAT), (void*)0);	
 	glBindVertexArray(0);
+
+	unsigned int VAOatom, VBOatom, EBOatom;
+	glGenVertexArrays(1, &VAOatom);
+	glGenBuffers(1, &VBOatom);
+	glGenBuffers(1, &EBOatom);
+	glBindVertexArray(VAOatom);
+
+	std::vector<unsigned int> atomIndices;
+	std::vector<float> atomBuffer = CriaEsfera(20, 20, 3.0f, &atomIndices);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBOatom);
+	glBufferData(GL_ARRAY_BUFFER, atomBuffer.size() * sizeof(float), atomBuffer.data(), GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)0);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)(3*sizeof(float)));
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)(6*sizeof(float)));
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBOatom);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, atomIndices.size() * sizeof(float), atomIndices.data(), GL_STATIC_DRAW);
+	glBindVertexArray(0);
+
+	glEnable(GL_DEPTH_TEST);
 	glm::vec3 pos = glm::vec3(0.0f, 0.0f, 1.0f);
 
 	while (!glfwWindowShouldClose(janela))
 	{
 		callback_CloseWindow(janela);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glm::mat4 projection = glm::mat4(1.0f);
 		projection = glm::perspective(glm::radians(45.0f), (GLfloat)(largura)/(GLfloat)(altura), 0.01f, 50.0f);
+		Base.use();
 		Base.setmat4("proj", projection);
 		Camera viewer = Camera(pos, yaw, pitch);
 		Base.setmat4("view", viewer.view);
-		camera_movement(janela, 0.01, viewer, &pos);
-		Base.use();
-		glBindVertexArray(VAOMirror);
-		glDrawArrays(GL_TRIANGLES, 0, 6);
+		camera_movement(janela, 0.005, viewer, &pos);
+		glBindVertexArray(VAOatom);
+		glDrawElements(GL_TRIANGLES, (unsigned int)atomIndices.size(), GL_UNSIGNED_INT, 0);
 		glfwSwapBuffers(janela);
 		glfwPollEvents();
 	}
