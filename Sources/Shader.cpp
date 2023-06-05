@@ -181,3 +181,11 @@ std::vector<float> Shader::getcomp(){
     glGetTexImage(GL_TEXTURE_2D, 0, GL_RED, GL_FLOAT, result.data());
     return result;
 }
+
+void Shader::setvec4(const std::string& name, glm::vec4 vector){
+	setfloat4(name, vector.x, vector.y, vector.z, vector.w);
+}
+
+void Shader::setvec3(const std::string& name, glm::vec3 vector){
+	setfloat3(name, vector.x, vector.y, vector.z);
+}

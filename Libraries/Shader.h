@@ -25,6 +25,8 @@ public:
 	void setfloat4(const std::string& name, float x, float y, float z, float w);
 	void setfloat3(const std::string& name, float x, float y, float z);
 	void setmat4(const std::string& name, glm::mat4 trans);
+	void setvec4(const std::string& name, glm::vec4 vector);
+	void setvec3(const std::string& name, glm::vec3 vector);
 
 	void nope();
 	void erase();

@@ -1,5 +1,4 @@
 #include "Libraries/Camera.h"
-#include "Libraries/Shader.h"
 #include "Libraries/texture.h"
 #include "Libraries/Desenhos.h"
 
@@ -28,7 +27,7 @@ int main(void){
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	janela = glfwCreateWindow(largura, altura, "Optics", NULL, NULL);
+	janela = glfwCreateWindow(largura, altura, "Chemistry", NULL, NULL);
 	if (!janela) {
 		printf("janela nao foi criada...\n");
 		glfwTerminate();
@@ -50,6 +49,7 @@ int main(void){
 	glfwSetInputMode(janela, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	Shader Base("../../Shaders/BaseShader.vert", "../../Shaders/BaseShader.frag");
+	Shader Atom("../../Shaders/Atom.vert", "../../Shaders/Atom.frag");
 
 	unsigned int VAOMirror, VBOMirror;
 	glGenVertexArrays(1, &VAOMirror);
@@ -92,22 +92,107 @@ int main(void){
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, atomIndices.size() * sizeof(float), atomIndices.data(), GL_STATIC_DRAW);
 	glBindVertexArray(0);
 
+	unsigned int VAOcilindro[3], VBOcilindro[3], EBOcilindro;
+	glGenVertexArrays(3, VAOcilindro);
+	glGenBuffers(3, VBOcilindro);
+	glGenBuffers(1, &EBOcilindro);
+	glBindVertexArray(VAOcilindro[0]);
+
+	int nSetores = 10;
+	float cilinderRadius = 0.20f;
+	float cilinderHeight = 5.0f;
+	float HALF_CI_HEIGHT = 2.5f;
+	std::vector<float> circleBuffer1 = CriaCirculo(cilinderRadius, nSetores, HALF_CI_HEIGHT);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBOcilindro[0]);
+	glBufferData(GL_ARRAY_BUFFER, circleBuffer1.size() * sizeof(float), circleBuffer1.data(), GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)0);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)(3*sizeof(float)));
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)(6*sizeof(float)));
+	glBindVertexArray(VAOcilindro[1]);
+
+	std::vector<float> circleBuffer2 = CriaCirculo(cilinderRadius, nSetores, -HALF_CI_HEIGHT);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBOcilindro[1]);
+	glBufferData(GL_ARRAY_BUFFER, circleBuffer2.size() * sizeof(float), circleBuffer2.data(), GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)0);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)(3*sizeof(float)));
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)(6*sizeof(float)));
+	glBindVertexArray(VAOcilindro[2]);
+
+	std::vector<unsigned int> cilindroIndices;
+	std::vector<float> cilindroBuffer = Cria_CorpodeCilindro(nSetores, cilinderRadius, cilinderHeight, &cilindroIndices);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBOcilindro[2]);
+	glBufferData(GL_ARRAY_BUFFER, cilindroBuffer.size() * sizeof(float), cilindroBuffer.data(), GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)0);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)(3*sizeof(float)));
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void*)(6*sizeof(float)));
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBOcilindro);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, cilindroIndices.size() * sizeof(float), cilindroIndices.data(), GL_STATIC_DRAW);
+	glBindVertexArray(0);
+
 	glEnable(GL_DEPTH_TEST);
 	glm::vec3 pos = glm::vec3(0.0f, 0.0f, 1.0f);
+	glm::vec4 color;
 
 	while (!glfwWindowShouldClose(janela))
 	{
 		callback_CloseWindow(janela);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glm::mat4 projection = glm::mat4(1.0f);
+		glm::mat4 model = glm::mat4(1.0f);
 		projection = glm::perspective(glm::radians(45.0f), (GLfloat)(largura)/(GLfloat)(altura), 0.01f, 50.0f);
-		Base.use();
-		Base.setmat4("proj", projection);
+		Atom.use();
+		Atom.setmat4("proj", projection);
 		Camera viewer = Camera(pos, yaw, pitch);
-		Base.setmat4("view", viewer.view);
-		camera_movement(janela, 0.005, viewer, &pos);
-		glBindVertexArray(VAOatom);
-		glDrawElements(GL_TRIANGLES, (unsigned int)atomIndices.size(), GL_UNSIGNED_INT, 0);
+		Atom.setmat4("view", viewer.view);
+		Atom.setmat4("model", model);
+		float velocity = glfwGetTime()/32;
+		camera_movement(janela, velocity, viewer, &pos);
+
+
+		color = OxygenColor;
+		Atom.setvec4("color", color);
+		Desenha_Esfera(VAOatom, atomIndices);
+
+
+		model = glm::translate(model, glm::vec3(-3.0f, -1.5f, 0.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.5f));
+		Atom.setmat4("model", model);
+		color = BondColor;
+		Atom.setvec4("color", color);
+		Desenha_Cilindro(VAOcilindro[2], VAOcilindro[0], VAOcilindro[1], cilindroIndices);
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(3.0f, -1.5f, 0.0f));
+		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, -0.5f));
+		Atom.setmat4("model", model);
+		Desenha_Cilindro(VAOcilindro[2], VAOcilindro[0], VAOcilindro[1], cilindroIndices);
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(-4.5f, -2.0f, -0.35f));
+		model = glm::scale(model, glm::vec3(0.35f, 0.35f, 0.35f));
+		Atom.setmat4("model", model);
+		color = HydrogenColor;
+		Atom.setvec4("color", color);
+		Desenha_Esfera(VAOatom, atomIndices);
+		
+
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(4.5f, -2.0f, -0.35f));
+		model = glm::scale(model, glm::vec3(0.35f, 0.35f, 0.35f));
+		Atom.setmat4("model", model);
+		Desenha_Esfera(VAOatom, atomIndices);
+
 		glfwSwapBuffers(janela);
 		glfwPollEvents();
 	}

@@ -7,8 +7,9 @@ out vec3 norm;
 out vec3 fragpos;
 uniform mat4 proj;
 uniform mat4 view;
+uniform mat4 model;
 void main(){
-    gl_Position = proj* view * vec4(pos, 1.0);
+    gl_Position = proj* view * model * vec4(pos, 1.0);
     fragpos = pos;
     norm = normalize(norms);
 }
