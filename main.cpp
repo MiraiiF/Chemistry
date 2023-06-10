@@ -1,6 +1,6 @@
 #include "Libraries/Camera.h"
 #include "Libraries/texture.h"
-#include "Libraries/Desenhos.h"
+#include "Libraries/Molecule.hpp"
 
 bool firstcursor = true;
 float lastx = 640, lasty = 360;
@@ -78,7 +78,7 @@ int main(void){
 	glBindVertexArray(VAOatom);
 
 	std::vector<unsigned int> atomIndices;
-	std::vector<float> atomBuffer = CriaEsfera(20, 20, 3.0f, &atomIndices);
+	std::vector<float> atomBuffer = CriaEsfera(20, 20, 1.0f, &atomIndices);
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBOatom);
 	glBufferData(GL_ARRAY_BUFFER, atomBuffer.size() * sizeof(float), atomBuffer.data(), GL_STATIC_DRAW);
@@ -99,9 +99,9 @@ int main(void){
 	glBindVertexArray(VAOcilindro[0]);
 
 	int nSetores = 10;
-	float cilinderRadius = 0.20f;
-	float cilinderHeight = 5.0f;
-	float HALF_CI_HEIGHT = 2.5f;
+	float cilinderRadius = 0.04f;
+	float cilinderHeight = 1.0f;
+	float HALF_CI_HEIGHT = 0.5f;
 	std::vector<float> circleBuffer1 = CriaCirculo(cilinderRadius, nSetores, HALF_CI_HEIGHT);
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBOcilindro[0]);
@@ -145,6 +145,10 @@ int main(void){
 	glm::vec3 pos = glm::vec3(0.0f, 0.0f, 1.0f);
 	glm::vec4 color;
 
+	double time = 0;
+
+	Molecule water;
+	water.water_template();
 	while (!glfwWindowShouldClose(janela))
 	{
 		callback_CloseWindow(janela);
@@ -157,41 +161,11 @@ int main(void){
 		Camera viewer = Camera(pos, yaw, pitch);
 		Atom.setmat4("view", viewer.view);
 		Atom.setmat4("model", model);
-		float velocity = glfwGetTime()/32;
+		float velocity = 5*(glfwGetTime() - time);
+		time = glfwGetTime();
 		camera_movement(janela, velocity, viewer, &pos);
 
-
-		color = OxygenColor;
-		Atom.setvec4("color", color);
-		Desenha_Esfera(VAOatom, atomIndices);
-
-
-		model = glm::translate(model, glm::vec3(-3.0f, -1.5f, 0.0f));
-		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.5f));
-		Atom.setmat4("model", model);
-		color = BondColor;
-		Atom.setvec4("color", color);
-		Desenha_Cilindro(VAOcilindro[2], VAOcilindro[0], VAOcilindro[1], cilindroIndices);
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(3.0f, -1.5f, 0.0f));
-		model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, -0.5f));
-		Atom.setmat4("model", model);
-		Desenha_Cilindro(VAOcilindro[2], VAOcilindro[0], VAOcilindro[1], cilindroIndices);
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(-4.5f, -2.0f, -0.35f));
-		model = glm::scale(model, glm::vec3(0.35f, 0.35f, 0.35f));
-		Atom.setmat4("model", model);
-		color = HydrogenColor;
-		Atom.setvec4("color", color);
-		Desenha_Esfera(VAOatom, atomIndices);
-		
-
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(4.5f, -2.0f, -0.35f));
-		model = glm::scale(model, glm::vec3(0.35f, 0.35f, 0.35f));
-		Atom.setmat4("model", model);
-		Desenha_Esfera(VAOatom, atomIndices);
+		water.draw(Atom, VAOcilindro[2], VAOcilindro[0], VAOcilindro[1], cilindroIndices, VAOatom, atomIndices);
 
 		glfwSwapBuffers(janela);
 		glfwPollEvents();

@@ -1,6 +1,5 @@
 #pragma once
 #include "General.h"
-#include "Shader.h"
 #define pi 3.1415926
 
 
