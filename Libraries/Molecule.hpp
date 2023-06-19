@@ -12,6 +12,7 @@ struct Atom{
     bool visited = false;
     glm::vec3 pos;
     float scale = 1.0f;
+    bool visible = true;
 };
 
 struct Bond{
@@ -22,6 +23,7 @@ struct Bond{
     float theta = 0.0f;
     float height = 1.0f;
     glm::vec3 pos;
+    bool visible = true;
 };
 
 struct DrawStack{
@@ -35,6 +37,7 @@ struct DrawStack{
 };
 
 class Molecule{
+public:
     DrawStack stack;
     /*float return_dimensions(glm::vec3 atom1, glm::vec3 atom2, float* phi, float*theta){
         glm::vec3 diff = atom2 - atom1;
@@ -42,7 +45,6 @@ class Molecule{
         diff = glm::normalize(diff);
         float theight = glm::sqrt((diff.y * diff.y) + (diff.z * diff.z));
     }*/
-    public:
     void add_atom(Atom ready);
     void add_bond(unsigned int indice0, unsigned int indice1, bondType type);
     void water_template();

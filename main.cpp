@@ -15,6 +15,20 @@ void constrain(float* value, float lim_up, float lim_down);
 void up_down(GLFWwindow* janela, float* var, float val, int key_up, int key_down, float lim_up, float lim_down);
 void camera_movement(GLFWwindow* janela, float velocity, Camera viewer, glm::vec3 *position);
 
+void AddRemoveAtom(GLFWwindow* janela, Molecule& mol)
+{
+	if (glfwGetKey(janela, GLFW_KEY_Z) == GLFW_PRESS)
+	{
+		mol.stack.spheres[1].visible = !(mol.stack.spheres[1].visible);
+		mol.stack.cylinders[0].visible = !(mol.stack.cylinders[0].visible);
+	}
+	else if (glfwGetKey(janela, GLFW_KEY_C) == GLFW_PRESS)
+	{
+		mol.stack.spheres[2].visible = !(mol.stack.spheres[2].visible);
+		mol.stack.cylinders[1].visible = !(mol.stack.cylinders[1].visible);
+	}
+}
+
 int main(void){
     GLFWwindow* janela;
 
@@ -164,7 +178,7 @@ int main(void){
 		float velocity = 5*(glfwGetTime() - time);
 		time = glfwGetTime();
 		camera_movement(janela, velocity, viewer, &pos);
-
+		AddRemoveAtom(janela, water);
 		water.draw(Atom, VAOcilindro[2], VAOcilindro[0], VAOcilindro[1], cilindroIndices, VAOatom, atomIndices);
 
 		glfwSwapBuffers(janela);

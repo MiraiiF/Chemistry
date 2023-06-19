@@ -34,7 +34,10 @@ void Molecule::draw(Shader base, unsigned int VAOcylinder, unsigned int VAOcircl
         model = glm::rotate(model, glm::radians(stack.cylinders[i].theta), glm::vec3(1.0f, 0.0f, 0.0f));
         model = glm::scale(model, glm::vec3(1.0f, 1.0f, stack.cylinders[i].height));
         base.setmat4("model", model);
-        Desenha_Cilindro(VAOcylinder, VAOcircle1, VAOcircle2, cylinderIndices);
+        if (stack.cylinders[i].visible)
+        {
+            Desenha_Cilindro(VAOcylinder, VAOcircle1, VAOcircle2, cylinderIndices);
+        }
     }
     for(int i = 0; i < stack.spheres.size(); i++){
         model = glm::mat4(1.0f);
@@ -42,6 +45,9 @@ void Molecule::draw(Shader base, unsigned int VAOcylinder, unsigned int VAOcircl
         model = glm::scale(model, glm::vec3(stack.spheres[i].scale));
         base.setmat4("model", model);
         base.setvec4("color", stack.spheres[i].element);
-        Desenha_Esfera(VAOsphere, sphereIndices);
+        if (stack.spheres[i].visible)
+        {
+            Desenha_Esfera(VAOsphere, sphereIndices);
+        }
     }
 }
