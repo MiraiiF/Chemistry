@@ -45,8 +45,11 @@ public:
         diff = glm::normalize(diff);
         float theight = glm::sqrt((diff.y * diff.y) + (diff.z * diff.z));
     }*/
+    float retrieve_phi(Atom main, Atom secondary);
+    float retrieve_theta(Atom main, Atom secondary);
     void add_atom(Atom ready);
     void add_bond(unsigned int indice0, unsigned int indice1, bondType type);
     void water_template();
+    void test_template();
     void draw(Shader base, unsigned int VAOcylinder, unsigned int VAOcircle1, unsigned int VAOcircle2, std::vector<unsigned int> cylinderIndices, unsigned int VAOsphere, std::vector<unsigned int> sphereIndices);
 };

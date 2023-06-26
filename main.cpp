@@ -163,6 +163,8 @@ int main(void){
 
 	Molecule water;
 	water.water_template();
+	Molecule test;
+	test.test_template();
 	while (!glfwWindowShouldClose(janela))
 	{
 		callback_CloseWindow(janela);
@@ -180,6 +182,7 @@ int main(void){
 		camera_movement(janela, velocity, viewer, &pos);
 		AddRemoveAtom(janela, water);
 		water.draw(Atom, VAOcilindro[2], VAOcilindro[0], VAOcilindro[1], cilindroIndices, VAOatom, atomIndices);
+		test.draw(Atom, VAOcilindro[2], VAOcilindro[0], VAOcilindro[1], cilindroIndices, VAOatom, atomIndices);
 
 		glfwSwapBuffers(janela);
 		glfwPollEvents();
