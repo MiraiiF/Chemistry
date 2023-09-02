@@ -1,4 +1,4 @@
-# Optics
+# Chemistry
 This was a project we were making for the CRAb group of the Federal University of Fortaleza.
 The project was about modelling 3D atoms in OpenGL, in a way that public schools could run this simulator on low-end computers.
 
